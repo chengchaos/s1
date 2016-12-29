@@ -1,7 +1,6 @@
-package cn.chengchaos.s1.servlet
+package cn.chengchaos.servlet
 
 import javax.servlet.http._;
-import javax.servlet.annotation._;
 
 //@WebServlet(urlPatterns=Array{"/demo"}, asyncSupported=true)
 abstract class AbstractServlet extends HttpServlet {
@@ -9,8 +8,8 @@ abstract class AbstractServlet extends HttpServlet {
   protected def perform(req: HttpServletRequest, resp: HttpServletResponse)
   
   override def doGet(req: HttpServletRequest, resp: HttpServletResponse) 
-    = perform(req, resp);
+    = perform(req, resp)
   
   override def doPost(req: HttpServletRequest, resp: HttpServletResponse) 
-    = perform(req, resp);
+    = perform(req, resp)
 }

@@ -1,25 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="http://java.sun.com/xml/ns/javaee"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
-        http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-    metadata-complete="false" version="3.0">
-    
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         metadata-complete="false"
+         version="3.1">
+    <!--  metadata-complete="false" : 通知Web容器是否要寻找注解, false 或者不指定, 则扫描注解 -->
+
+    <!--metadata-complete="true"-->
     <display-name>Archetype Created Web Application</display-name>
-    
-    
+
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:applicationContext.xml</param-value>
     </context-param>
-    
+
+
     <!-- spring 加载 -->
     <listener>
         <listener-class>
             org.springframework.web.context.ContextLoaderListener
         </listener-class>
     </listener>
-    
+
     <!-- 1: spring 字符编码过滤器 -->
     <filter>
         <filter-name>spring-characterEncodingFilter</filter-name>
@@ -38,30 +40,30 @@
         <filter-name>spring-characterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    
+
     <!--CrossOriginFilter-->
-    
     <filter>
-       <filter-name>cross-origin</filter-name>
-       <filter-class>org.eclipse.jetty.servlets.CrossOriginFilter</filter-class>
+        <filter-name>cross-origin</filter-name>
+        <filter-class>org.eclipse.jetty.servlets.CrossOriginFilter</filter-class>
         <async-supported>true</async-supported>
-       <init-param>
-           <param-name>allowedOrigins</param-name>
-           <param-value>*</param-value>
-       </init-param>
-       <init-param>
-           <param-name>allowedMethods</param-name>
-           <param-value>*</param-value>
-       </init-param>
+        <init-param>
+            <param-name>allowedOrigins</param-name>
+            <param-value>*</param-value>
+        </init-param>
+        <init-param>
+            <param-name>allowedMethods</param-name>
+            <param-value>*</param-value>
+        </init-param>
         <init-param>
             <param-name>allowedHeaders</param-name>
             <param-value>*</param-value>
         </init-param>
+
     </filter>
-    
+
     <filter-mapping>
-       <filter-name>cross-origin</filter-name>
-       <url-pattern>/*</url-pattern>
+        <filter-name>cross-origin</filter-name>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
     <!-- 隐式 HTTP 方法过滤器（后台） -->
@@ -76,7 +78,7 @@
         <filter-name>spring-hiddenHttpMethodFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    
+
     <!-- Druid 数据库连接池状态 -->
     <!-- 
     <servlet>
@@ -88,18 +90,27 @@
         <url-pattern>/druid/*</url-pattern>
     </servlet-mapping> -->
 
+<!--
     <servlet>
         <servlet-name>demoServlet</servlet-name>
-        <servlet-class>cn.chengchaos.s1.servlet.DemoServlet</servlet-class>
+        <servlet-class>cn.chengchaos.servlet.DemoServlet</servlet-class>
         <async-supported>true</async-supported>
     </servlet>
-    
+
     <servlet-mapping>
         <servlet-name>demoServlet</servlet-name>
         <url-pattern>/demo</url-pattern>
     </servlet-mapping>
-    
-    
+    <servlet>
+        <servlet-name>helloServlet</servlet-name>
+        <servlet-class>cn.chengchaos.servlet.HelloServlet</servlet-class>
+        <async-supported>true</async-supported>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>helloServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>-->
+
     <!-- Spring MVC (前端) -->
     <servlet>
         <servlet-name>springmvc</servlet-name>
@@ -113,14 +124,14 @@
         <servlet-name>springmvc</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    
+
     <error-page>
         <error-code>404</error-code>
-        <location>/pagenotfound.jsp</location>    
+        <location>/pagenotfound.jsp</location>
     </error-page>
-    
+
     <welcome-file-list>
         <welcome-file>index</welcome-file>
     </welcome-file-list>
-    
+
 </web-app>

@@ -1,7 +1,7 @@
-package cn.chengchaos.s1.servlet
+package cn.chengchaos.servlet
 
+import java.util.Date
 import javax.servlet.http._;
-import javax.servlet.annotation._;
 
 //@WebServlet(urlPatterns=Array{"/demo"}, asyncSupported=true)
 class DemoServlet extends AbstractServlet {
@@ -25,6 +25,10 @@ class DemoServlet extends AbstractServlet {
     }
     
     val ctx = req.getAsyncContext();
+
+    out.println("结束 Servlet 的时间: " + new Date + ". ")
+    out.flush()
+    ctx.complete()
     
   }
   

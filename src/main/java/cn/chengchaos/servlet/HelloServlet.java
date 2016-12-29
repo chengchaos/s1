@@ -1,4 +1,4 @@
-package cn.chengchaos.s1.servlet;
+package cn.chengchaos.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -67,6 +67,7 @@ public class HelloServlet extends HttpServlet {
 			LOGGER.info("结束 Servlet 的时间: " + new Date() + ". ");
 			out.println("结束 Servlet 的时间: " + new Date() + ". ");
 			out.flush();
+
 		} else {
 			LOGGER.error("the ruquest is not AsyncStarted !");
 		}

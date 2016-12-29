@@ -24,7 +24,7 @@
 	
 	
 	<!-- 1. 包扫描 controller -->
-	<context:component-scan base-package="cn.chengchaos.s1.controller" use-default-filters="false">
+	<context:component-scan base-package="cn.chengchaos.controller" use-default-filters="false">
 		<context:include-filter type="annotation"
             expression="org.springframework.stereotype.Controller" />
         <context:exclude-filter type="regex" expression="com\.gpdata\.trade\.admin.*"/>
